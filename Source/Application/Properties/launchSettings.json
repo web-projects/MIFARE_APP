@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MifareApp": {
+      "commandName": "Project",
+      "commandLineArgs": "-AssetsDir:\"C:\\temp\\_src\" -Pipeline:false"
+    }
+  }
+}
