@@ -11,5 +11,8 @@ namespace Devices.Verifone.VIPA.MiFare
 
         public void SetAuthenticated()
             => authenticated = true;
+
+        public byte[] MiFareFileData()
+            => new byte[] { 0xDE, 0xAD, 0xBE, 0xEF };
     }
 }

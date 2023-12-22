@@ -1,5 +1,4 @@
 ﻿using Devices.Verifone.VIPA.MiFare.Interfaces;
-using System;
 
 namespace Devices.Verifone.VIPA.MiFare
 {
@@ -12,5 +11,8 @@ namespace Devices.Verifone.VIPA.MiFare
 
         public void SetAuthenticated()
             => miFareCardImpl.SetAuthenticated();
+
+        public byte[] MiFareFileData()
+            => miFareCardImpl.MiFareFileData();
     }
 }

@@ -16,6 +16,9 @@ namespace Devices.Verifone
 
             cardStatus = vipaDevice.StartTransaction();
             Console.WriteLine($"DEVICE: GetPayment status={cardStatus}");
+
+            cardStatus = vipaDevice.ContinueContactlessTransaction();
+            Console.WriteLine($"DEVICE: GetPayment status={cardStatus}");
         }
     }
 }

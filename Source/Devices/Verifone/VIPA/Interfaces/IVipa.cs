@@ -6,5 +6,6 @@ namespace Devices.Verifone.VIPA.Interfaces
     {
         CardStatus GetCardStatus();
         CardStatus StartTransaction();
+        CardStatus ContinueContactlessTransaction();
     }
 }

@@ -4,5 +4,6 @@
     {
         void SetAuthenticated();
         bool IsAuthenticated();
+        byte[] MiFareFileData();
     }
 }

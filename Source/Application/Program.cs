@@ -27,11 +27,11 @@ namespace MIFARE_APP
 
             verifoneDevice.DeviceHealth();
 
-            if (!runtimeParams.InPipeline)
-            {
-                // open log file in Notepad++
-                Processor.OpenNotePadPlus(SetupEnvironment.GetLogFilenamePath());
-            }
+            //if (!runtimeParams.InPipeline)
+            //{
+            //    // open log file in Notepad++
+            //    Processor.OpenNotePadPlus(SetupEnvironment.GetLogFilenamePath());
+            //}
 
 #if !DEBUG
             if (!runtimeParams.InPipeline)
