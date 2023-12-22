@@ -31,6 +31,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Execution\Execution.csproj" />
     <ProjectReference Include="..\Common\LoggerManager\LoggerManager.csproj" />
+    <ProjectReference Include="..\Devices\Devices.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using Application.Config;
 using Common.LoggerManager;
+using Devices.Verifone;
 using Execution;
 using MIFARE_APP.Config;
 using System;
@@ -21,7 +22,10 @@ namespace MIFARE_APP
             Logger.info($"Runtime parameters: {runtimeParams}");
 
             // ToDo: implementation
-            // 
+            //
+            VerifoneDevice verifoneDevice = new VerifoneDevice();
+
+            verifoneDevice.DeviceHealth();
 
             if (!runtimeParams.InPipeline)
             {
