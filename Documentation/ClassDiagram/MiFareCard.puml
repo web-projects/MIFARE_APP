@@ -7,10 +7,10 @@
 interface IMiFare
 interface IMiFareCard
 
-MiFareImpl o-- MiFareCard : aggregation
+MiFareImpl o-- MiFareCard : < aggregation
 IMiFareCard <|- MiFareCard
 IMiFare <|- MiFareImpl
-MiFareImpl <|-- VipaImpl
+MiFareImpl <|-- VipaImpl : < processes
 
 skinparam class {
     BackgroundColor PaleGreen
@@ -37,8 +37,20 @@ class VipaImpl <<Foo>> {
 }
 
 enum CardStatus {
-AUTHENTICATED
-VSS_SCRIPTS_MISSING
+    AUTHENTICATED
+    VSS_SCRIPTS_MISSING
 }
 
+enum FileTypes {
+    ENVIRONMENT_HOLDER
+    STANDARD_DATA
+}
+
+enum TransportApplicationKeys {
+    MASTER_KEY_0
+    WORK_KEY_1
+    WORK_KEY_2
+    WORK_KEY_3
+    WORK_KEY_4
+}
 @enduml
