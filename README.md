@@ -31,3 +31,4 @@ This an application to experiment with class inheritance.
 ### HISTORY ###
 
 * 20231221 - Initial repository.
+           - PlantUML Diagram added.
