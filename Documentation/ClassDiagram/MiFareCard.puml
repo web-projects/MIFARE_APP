@@ -4,13 +4,10 @@
 ' reference
 ' https://plantuml.com/class-diagram
 
-interface IMiFare
 interface IMiFareCard
 
-MiFareImpl o-- MiFareCard : < aggregation
 IMiFareCard <|- MiFareCard
-IMiFare <|- MiFareImpl
-MiFareImpl <|-- VipaImpl : < processes
+MiFareCard <|-- VipaImpl : < processes
 
 skinparam class {
     BackgroundColor PaleGreen
@@ -23,10 +20,6 @@ skinparam class {
 class MiFareCard {
     -Dictionary<int index,byte[] data> fileData
     +GetFileData()
-}
-
-abstract class MiFareImpl {
-    -Object MiFareCard
 }
 
 class VipaImpl <<Foo>> {

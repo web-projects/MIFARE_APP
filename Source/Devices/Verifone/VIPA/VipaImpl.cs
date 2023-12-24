@@ -1,30 +1,28 @@
-﻿using Common.Helpers;
-using Devices.Verifone.VIPA.Helpers;
+﻿using Devices.Verifone.VIPA.Helpers;
 using Devices.Verifone.VIPA.Interfaces;
 using Devices.Verifone.VIPA.MiFare;
 using System;
-using System.Text;
 
 namespace Devices.Verifone.VIPA
 {
     internal class VipaImpl : IVipa
     {
-        private MiFareImpl miFareImpl = new MiFareImpl();
+        private MiFareCardImpl miFareCard = new MiFareCardImpl();
 
         public CardStatus GetCardStatus()
             => CardStatus.GetDeviceHealth;
 
         public CardStatus StartTransaction()
         {
-            miFareImpl.SetAuthenticated();
-            Console.WriteLine($"DEVICE: MiFare authenticated={miFareImpl.IsAuthenticated()}");
+            miFareCard.SetAuthenticated();
+            Console.WriteLine($"DEVICE: MiFare authenticated={miFareCard.IsAuthenticated()}");
             return CardStatus.CardData;
         }
 
         public CardStatus ContinueContactlessTransaction()
         {
-            byte[] cardData = miFareImpl.MiFareFileData();
-            Console.WriteLine(string.Format("DEVICE: MiFare DATA=[{0}]", 
+            byte[] cardData = miFareCard.MiFareFileData();
+            Console.WriteLine(string.Format("DEVICE: MiFare DATA=[{0}]",
                               //ConversionHelper.ByteArrayToHexString(cardData)));
                               BitConverter.ToString(cardData).Replace("-", ".")));
             return CardStatus.CardData;
