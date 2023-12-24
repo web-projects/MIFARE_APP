@@ -6,8 +6,8 @@
 
 interface IMiFareCard
 
-IMiFareCard <|- MiFareCard
-MiFareCard <|-- VipaImpl : < processes
+IMiFareCard <|- MiFareCardImpl
+MiFareCardImpl <|-- VIPAImpl : < processes
 
 skinparam class {
     BackgroundColor PaleGreen
@@ -17,13 +17,13 @@ skinparam class {
     BorderColor<<Foo>> Tomato
 }
 
-class MiFareCard {
+class MiFareCardImpl {
     -Dictionary<int index,byte[] data> fileData
     +GetFileData()
 }
 
-class VipaImpl <<Foo>> {
-    -Object [MiFareImpl]
+class VIPAImpl <<Foo>> {
+    -Object [MiFareCardImpl]
     +GetCardData()
     -Authenticate()
     -ContinueContactlessTransaction()

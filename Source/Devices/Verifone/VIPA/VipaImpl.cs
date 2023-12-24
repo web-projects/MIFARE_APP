@@ -2,6 +2,7 @@
 using Devices.Verifone.VIPA.Interfaces;
 using Devices.Verifone.VIPA.MiFare;
 using System;
+using System.Collections.Generic;
 
 namespace Devices.Verifone.VIPA
 {
@@ -21,10 +22,17 @@ namespace Devices.Verifone.VIPA
 
         public CardStatus ContinueContactlessTransaction()
         {
-            byte[] cardData = miFareCard.MiFareFileData();
-            Console.WriteLine(string.Format("DEVICE: MiFare DATA=[{0}]",
-                              //ConversionHelper.ByteArrayToHexString(cardData)));
-                              BitConverter.ToString(cardData).Replace("-", ".")));
+            // retrieve card data from card
+            miFareCard.GetFileDataFromCard();
+
+            Dictionary<FileTypes, byte[]> fileDataDictionary = miFareCard.GetMiFareFileData();
+            foreach (var fileData in fileDataDictionary)
+            {
+                Console.WriteLine(string.Format("DEVICE: MiFare File={0} - DATA=[{1}]",
+                              fileData.Key,
+                              //ConversionHelper.ByteArrayToHexString(fileData)));
+                              BitConverter.ToString(fileData.Value).Replace("-", ".")));
+            }
             return CardStatus.CardData;
         }
     }

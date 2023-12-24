@@ -1,9 +1,13 @@
-﻿namespace Devices.Verifone.VIPA.MiFare.Interfaces
+﻿using Devices.Verifone.VIPA.Helpers;
+using System.Collections.Generic;
+
+namespace Devices.Verifone.VIPA.MiFare.Interfaces
 {
     interface IMiFareCard
     {
         void SetAuthenticated();
         bool IsAuthenticated();
-        byte[] MiFareFileData();
+        void GetFileDataFromCard();
+        Dictionary<FileTypes, byte[]> GetMiFareFileData();
     }
 }

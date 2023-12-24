@@ -1,4 +1,6 @@
-﻿using Devices.Verifone.VIPA.MiFare.Interfaces;
+﻿using Devices.Verifone.VIPA.Helpers;
+using Devices.Verifone.VIPA.MiFare.Interfaces;
+using System.Collections.Generic;
 
 namespace Devices.Verifone.VIPA.MiFare
 {
@@ -6,13 +8,20 @@ namespace Devices.Verifone.VIPA.MiFare
     {
         private bool authenticated;
 
+        private Dictionary<FileTypes, byte[]> fileDataDictionary = new Dictionary<FileTypes, byte[]>();
+
         public bool IsAuthenticated()
             => authenticated;
 
         public void SetAuthenticated()
             => authenticated = true;
 
-        public byte[] MiFareFileData()
-            => new byte[] { 0xDE, 0xAD, 0xBE, 0xEF };
+        public void GetFileDataFromCard()
+        {
+            fileDataDictionary.Add(FileTypes.EnvironmentHolder, new byte[] { 0xDE, 0xAD });
+            fileDataDictionary.Add(FileTypes.StandardDataFile, new byte[] { 0xBE, 0xEF });
+        }
+        public Dictionary<FileTypes, byte[]> GetMiFareFileData()
+            => fileDataDictionary;
     }
 }
